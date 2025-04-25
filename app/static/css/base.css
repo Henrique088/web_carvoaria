@@ -101,7 +101,7 @@ h1 {
     border-radius: 8px;
 }
 
-/* Botões (caso precise adicionar posteriormente) */
+
 .btn {
     display: inline-block;
     background: #3498db;
@@ -117,3 +117,7 @@ h1 {
 .btn:hover {
     background: #2980b9;
 }
+
+
+
+

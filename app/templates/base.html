@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Sistema de Gestão{% endblock %}</title>
+    {% block styles %}{% endblock %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 </head>
 <body>
@@ -19,5 +20,6 @@
     <main>
         {% block content %}{% endblock %}
     </main>
+    {% block scripts %} {% endblock %}
 </body>
 </html>
