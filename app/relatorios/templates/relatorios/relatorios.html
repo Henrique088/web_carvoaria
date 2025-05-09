@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    table {
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 4px;
+      text-align: center;
+    }
+
+    .titulo {
+      font-weight: bold;
+    }
+
+    .fundo-amarelo {
+      background-color: yellow;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<table>
+  <!-- Primeira linha -->
+  <tr>
+    <td colspan="4" rowspan="1" style="border-right: none;">MÊS/ANO:</td>
+    <td colspan="4" class="titulo" style="border-left: none; border-right: none;">Set/23</td>
+    <td colspan="22" class="titulo" style="border-left:none">LÍDER DA PLANTA: CLEITON XAVIER</td>
+    <td colspan="{{dias_mes-20}}" class="titulo">UPC MATA VERDE</td>
+    
+    <td  colspan="10"></td>
+    
+    <!-- <td rowspan="2">Nº Ciclos</td>
+    <td rowspan="2">mdc / forno</td>
+    <td rowspan="2">mdc total</td> -->
+  </tr>
+
+  <!-- Segunda linha -->
+  <tr>
+    <td colspan="4" style="border-bottom: none;">Nº</td>
+    <td colspan="2" style="border-bottom: none;">FR</td>
+    <td colspan="4"></td>
+    <td colspan="{{dias_mes}}">DIAS</td>
+    <td colspan="4"></td>
+    <td colspan="4"></td>
+    <td colspan="4"></td>
+    
+    <!-- Dias 1 a 31 -->
+   
+  </tr>
+
+  <!-- Terceira linha: dias da semana -->
+  <tr>
+    <td colspan="4" style="border-top:none;">AP</td>
+    <td colspan="2" style="border-top:none;">n°</td>
+    <td colspan="4"></td>
+    {% for dia in range(1, dias_mes+1) %}
+      <td {% if dias_semana[dia-1] == 'dom' %}class="fundo-amarelo"{% endif %}>{{ dia }}</td>
+    {% endfor %}
+    <td colspan="4">N° Ciclos</td>
+    <td colspan="4">mdc/forno</td>
+    <td colspan="4">mdc total</td> 
+  </tr>
+  <tr>
+    <td colspan="10"></td>
+    {% for dia in range(1, dias_mes+1) %}
+      <td {% if dias_semana[dia-1] == 'dom' %}class="fundo-amarelo"{% endif %}>{{ dias_semana[dia-1] }}</td>
+    {% endfor %}
+  </tr>
+</table>
+
+</body>
+</html>
