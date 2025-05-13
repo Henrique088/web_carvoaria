@@ -23,24 +23,33 @@ def gerar_relatorio():
     dias_mes = 0
     for dia in range(1, 32):
         try:
-            data = datetime(2023, 1, dia)
+            data = datetime(2023, 9, dia)
             dias_semana.append(dia_semana_em_portugues(data))  # 'dom', 'seg', ...
             dias_mes += 1
         except ValueError:
             break
-    dados = {
-        "mes_ano": "09/2023",
-        "lider": "Cleiton Xavier",
-        "upc": "Mata Verde",
-        "previsao": 600,
-        "real": 530,
-        "fornos": [
-            {"numero": 1, "dias": ['L', 'C', 'R', 'R', 'R', 'D', 'D', 'R', 'C', 'V', 'M', 'R', 'C', 'C', 'R', 'R', 'R', 'D', 'L', 'C', 'R', 'R', 'R', 'C', 'V', 'M', 'R', 'R', 'D', 'C', 'R'], "ciclos": 3, "m3_forno": 100, "m3_total": 300},
-            # Adicione os outros fornos aqui...
-        ],
-        "producao_toneladas": [2, 1, 2, 0, 3, 4, 2, 2, 2, 1, 3, 4, 3, 2, 2, 0, 1, 2, 2, 3, 2, 1, 3, 2, 1, 0, 2, 1, 0, 3, 2],
-    }
-    return render_template("relatorios/relatorios.html", dados=dados,dias_semana=dias_semana, dias_mes=dias_mes)
+    # dados = {
+    #     "mes_ano": "09/2023",
+    #     "lider": "Cleiton Xavier",
+    #     "upc": "Mata Verde",
+    #     "previsao": 600,
+    #     "real": 530,
+    #     "fornos": [
+    #         {"numero": 1, "dias": ['L', 'C', 'R', 'R', 'R', 'D', 'D', 'R', 'C', 'V', 'M', 'R', 'C', 'C', 'R', 'R', 'R', 'D', 'L', 'C', 'R', 'R', 'R', 'C', 'V', 'M', 'R', 'R', 'D', 'C', 'R'], "ciclos": 3, "m3_forno": 100, "m3_total": 300},
+    #         # Adicione os outros fornos aqui...
+    #     ],
+    #     "producao_toneladas": [2, 1, 2, 0, 3, 4, 2, 2, 2, 1, 3, 4, 3, 2, 2, 0, 1, 2, 2, 3, 2, 1, 3, 2, 1, 0, 2, 1, 0, 3, 2],
+    # }
+    producao = [1,2,0,0,2,3,1]*4
+    fornos = [
+        {"numero": 1, "nome": "Forno 1", "dias": ['L', 'C', 'C', 'R', 'R', 'D', 'V'] * 4, "producao": [1,2,0,0,2,3,1]*4},
+        {"numero": 2,"nome": "Forno 2", "dias": ['V', 'L', 'C', 'C', 'R', 'D', 'V'] * 4, "producao": [1,2,0,0,2,3,1]*4},
+        {"numero": 3,"nome": "Forno 3", "dias": ['D', 'V', 'L', 'C', 'M', 'R', 'V'] * 4, "producao": [1,2,0,0,2,3,1]*4},
+        {"numero": 4,"nome": "Forno 4", "dias": ['C', 'C', 'R', 'D', 'V', 'L', 'L'] * 4, "producao": [1,2,0,0,2,3,1]*4},
+        {"numero": 5,"nome": "Forno 5", "dias": ['R', 'D', 'V', 'L', 'C', 'C', 'R'] * 4, "producao": [1,2,0,0,2,3,1]*4},
+    ]
+    
+    return render_template("relatorios/relatorios.html", fornos = fornos, dias_semana=dias_semana, dias_mes=dias_mes, producao=producao)
 
 
 @relatorios.route('/lista')

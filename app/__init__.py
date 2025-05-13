@@ -8,7 +8,7 @@ def create_app():
     app = Flask(__name__)
     
     # Configuração do banco de dados
-    # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@172.30.0.1/carvoaria'
+    # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost/carvoaria'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://flaskuser:senha_segura@172.30.0.1:3380/carvoaria'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 

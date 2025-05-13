@@ -13,7 +13,7 @@
         }
         
         th, td {
-            border: 1px solid #ccc;
+            border: 2px solid #000000;
             padding: 8px 12px;
             text-align: center;
         }
@@ -35,9 +35,61 @@
         
 </head>
 <body>
-    <h1>Lista de Produção Diária</h1>
+<table style="width: 48%;border: none;">
+    <tr>
+        <th colspan="1" style="background-color:#00b04f; font-weight: bold;border-top: none; border-bottom: none;">CONTROLE DIÁRIO DE PRODUÇÃO CARVÃO</th>
+    </tr>
+</table>
+
+<div  style="display: flex; gap: 30px; width: 75%;">
+<!-- DADOS BATERIA -->
+<table style="width: 50%;">
+    <tr style="line-height: 0.8;">
+        <td colspan="3" style="border: none;font-weight: bold;">BATERIA FC4</td>
+    </tr>
+    <tr style="line-height: 0.8;">
+        <td colspan="2" style="text-align: left;font-weight: bold;">MÊS</td>
+        <td style="border-right: none; text-align: left;">outubro, 2023</td>
+    </tr>
+
+    <tr style="line-height: 0.8;">
+        <td style="text-align: left;font-weight: bold;">MATERIAL</td>
+        <td>CARVÃO</td>
+        <td style="text-align: right; font-weight: bold;border-right: none;">303,51</td>
+    </tr>
+</table>
+
+<table>
+    <tr style="line-height: 0.8;">
+        <td style="font-weight: bold; background-color: #edf0e6; border-top: none; border-left: none;">PROD CARVÃO PLAN</td>
+        <td style="font-weight: bold; background-color: #edf0e6; border-top: none;">2.680</td>
+        <td style="font-weight: bold; background-color: #edf0e6; text-align: left; border-top: none;">CAPACIDADE FORNO st</td>
+        <td style="font-weight: bold; border-right: none; background-color: #edf0e6;  text-align: right; border-top: none;">23,57</td>
+        <td style="border: none;font-weight: bold; background-color: #edf0e6; border-top: none;">Fconv</td>
+
+    </tr>
+
+    <tr style="line-height: 0.8;">
+        <td style="font-weight: bold; border-left: none;">DESCARGA LENHA PLAN</td>
+        <td style="font-weight: bold;">5.326</td>
+        <td style="font-weight: bold; text-align: left;">VOLUME FORNO mdc</td>
+        <td style="font-weight: bold;border-top: none;border-right: none; background-color: #edf0e6;  text-align: right;">11,86</td>
+        <td style="border-right: none; border-top: none; font-weight: bold;color: #00b04f; text-align: right;">1,99</td>
+    </tr>
+
+    <tr style="line-height: 0.8;">
+        <td style="font-weight: bold; background-color: #edf0e6; border-bottom: none; border-left: none;">PRODUÇÃO REAL</td>
+        <td style="font-weight: bold; background-color: #edf0e6; border-bottom: none;">1.992</td>
+        <td style="font-weight: bold; background-color: #edf0e6; text-align: left; border-bottom: none;"> N. DE FORNOS</td>
+        <td style="font-weight: bold; background-color: #edf0e6; text-align: right; border-bottom: none;">12,10</td>
+        <td style="border: none;font-weight: bold;color: red;text-decoration:underline;border-bottom: none; ">atiço 2%</td>
+    </tr>
+</table>
+</div>
+
     <div style="display: flex; gap: 30px;">
-    <table border="1" cellpadding="5">
+    
+    <table border="1" cellpadding="5" style="border: none;">
         <thead>
             <tr>
                 <th colspan="11" style="background-color: #ccc6ba;">Operação / Fornos- UPC 1</th>
@@ -63,7 +115,7 @@
             {% if loop.first %}
             <tr style="background-color: #ccc6ba;">
                 
-                <td>{{ registro.data or '-' }}</td>
+                <td>{{ registro.data or '' }}</td>
                 <td>{{ registro.vazio or '-' }}</td>
                 <td>{{ registro.carregado or '-' }}</td>
                 <td>{{ registro.carbonizando or '-' }}</td>
@@ -74,10 +126,11 @@
                 <td>{{ registro.producao or '-' }}</td>
                 <td>{{ registro.expedicao or '-' }}</td>
                 <td>{{ registro.estoque or '-' }}</td>
+                
             </tr>
-
-            {% endif %}
-           
+            {% else %}
+            
+            
             <tr>
                 
                 <td>{{ registro.data or '-' }}</td>
@@ -92,8 +145,21 @@
                 <td>{{ registro.expedicao or '-' }}</td>
                 <td>{{ registro.estoque or '-' }}</td>
             </tr>
+            {% endif %}
             {% endfor %}
-            
+            <tr>
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td style="border: none;">7.131,26</td>
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>  
+            </tr>   
         </tbody>
     </table>
 
@@ -134,7 +200,45 @@
             {% endfor %}
             
         </tbody>
+        
     </table>
 </div>
+
+
+
+<table style="text-align: center; font-family: Arial; font-size: 14px;width: 40%; margin-left: 50px;">
+    <!-- Linha superior com agrupamentos -->
+    <tr>
+        <td colspan="2" style="border-bottom: 1px solid black; border-left: none;border-right: none;border-top: none;">3,9</td>
+        <td colspan="2" style="border-bottom: 1px solid black; border-left: none;border-right: none; border-top: none;">5,8</td>
+    </tr>
+
+    <!-- Cabeçalho principal -->
+    <tr>
+        <td colspan="4" style="border-bottom: 1px solid black; font-weight: bold; border-left: none;border-right: none;">CICLO</td>
+    </tr>
+
+    <!-- Subcabeçalho -->
+    <tr>
+        <td style="border-top: 2px solid black; border-left: none;border-right: none;">vazio</td>
+        <td style="border-top: 2px solid black; border-left: none;border-right: none;">carboniz</td>
+        <td style="border-top: 2px solid black; border-left: none;border-right: none;">resfriando</td>
+        <td style="border-top: 2px solid black; border-left: none;border-right: none;"> </td>
+        <td style="border-bottom: 1px solid black; border-left: none;border-right: none;">manut</td>
+        <td style="border-bottom: 1px solid black; border-left: none;border-right: none;">total</td>
+        
+    </tr>
+
+    <!-- Linha de dados -->
+    <tr>
+        <td style="border-left: none;border-right: none;border-bottom: none;">2,67</td>
+        <td style="border-left: none;border-right: none;border-bottom: none;">1,68</td>
+        <td style="border-left: none;border-right: none;border-bottom: none;">6,01</td>
+        <td style="border-left: none;border-right: none;border-bottom: none;"> </td>
+        <td style="border-left: none;border-right: none;border-bottom: none;">-</td>
+        <td style="background-color: yellow; font-weight: bold; border-left: none;border-right: none;border-bottom: none;">10,36</td>
+    </tr>
+</table>
+
 </body>
 </html>

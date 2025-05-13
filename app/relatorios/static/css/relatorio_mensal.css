@@ -24,25 +24,25 @@ body {
   }
   
   .L {
-    background-color: #a0522d; /* Marrom para lenha */
+    background-color: #ffbf00; /* Marrom para lenha */
     color: white;
   }
   .C {
-    background-color: #228b22; /* Verde para carbonização */
+    background-color: #ff0000; /* Verde para carbonização */
     color: white;
   }
   .R {
-    background-color: #00ced1; /* Azul para resfriamento */
+    background-color: #66ffff; /* Azul para resfriamento */
   }
   .D {
-    background-color: red; /* Vermelho para descarga */
+    background-color: #00b04f; /* Vermelho para descarga */
     color: white;
   }
   .V {
-    background-color: #f0e68c; /* Amarelo para vazio */
+    background-color: #daedf2; /* Amarelo para vazio */
   }
   .M {
-    background-color: #8b4513; /* Manutenção */
+    background-color: #996632; /* Manutenção */
     color: white;
   }
   
